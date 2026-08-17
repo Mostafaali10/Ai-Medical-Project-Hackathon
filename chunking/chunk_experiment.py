@@ -13,7 +13,8 @@ from src.config import CHUNK_CONFIGURATIONS, CHUNK_SEPARATORS
 from src.loader import load_clinical_documents
 from src.chunking import chunk_documents
 from src.indexing import create_vectorstore, get_embedding_function
-from src.evaluation import load_evaluation_dataset, evaluate_retriever
+from evaluation.evaluation_set import EVAL_SET
+from evaluation.metrics import evaluate_retriever
 
 
 def run_chunking_experiment(configs: List[Dict[str, Any]] = None):
@@ -24,14 +25,11 @@ def run_chunking_experiment(configs: List[Dict[str, Any]] = None):
     if configs is None:
         configs = CHUNK_CONFIGURATIONS
 
-    # 1. Load ground truth evaluation dataset
-    dataset_path = BASE_DIR / "data" / "evaluation_set.json"
-    if not dataset_path.exists():
-        raise FileNotFoundError(f"Evaluation dataset not found at: {dataset_path}")
-    eval_dataset = load_evaluation_dataset(dataset_path)
+    # 1. Use canonical evaluation benchmark dataset
+    eval_dataset = EVAL_SET
     in_scope_count = sum(1 for q in eval_dataset if not q.get("is_out_of_scope", False))
     out_of_scope_count = len(eval_dataset) - in_scope_count
-    print(f"[EXPERIMENT] Loaded dataset with {len(eval_dataset)} questions ({in_scope_count} in-scope, {out_of_scope_count} out-of-scope).")
+    print(f"[EXPERIMENT] Loaded canonical benchmark dataset with {len(eval_dataset)} questions ({in_scope_count} in-scope, {out_of_scope_count} out-of-scope).")
 
     # 2. Load PDF documents and embedding model
     raw_docs = load_clinical_documents()

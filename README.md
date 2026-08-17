@@ -16,14 +16,23 @@ clinical_rag_project/
 ├── .env.example
 ├── data/
 │   ├── lung-cancer-screening-final-recommendation.pdf
-│   ├── colorectal-cancer-screening-final-recommendation-updated.pdf
-│   └── evaluation_set.json     # 16 labeled clinical benchmark questions
+│   └── colorectal-cancer-screening-final-recommendation-updated.pdf
+├── evaluation/
+│   ├── README.md               # Benchmark dataset & metrics documentation
+│   ├── evaluation_set.py       # Canonical 16-question evaluation dataset (EVAL_SET)
+│   └── metrics.py              # Precision@K, Hit Rate, MRR calculation engine
 ├── chunking/
 │   ├── README.md               # Detailed chunking benchmark documentation
 │   ├── chunk_experiment.py     # Automated 5-way chunking benchmark runner
 │   ├── chunk_comparison.json   # Machine-readable benchmark results & metrics
 │   ├── chunk_comparison.csv    # Per-query precision & MRR comparison table
 │   └── failure_cases.md        # Qualitative failure analysis & error breakdown
+├── retrieval/
+│   ├── README.md               # Detailed Top-K retrieval evaluation documentation
+│   ├── retrieval_experiment.py # Top-K (K=1, 3, 5) evidence retrieval evaluation runner
+│   ├── retrieval_results.json  # Machine-readable retrieval metrics & chunk rankings
+│   ├── retrieval_results.csv   # Per-query Top-K hits and precision comparison table
+│   └── failure_cases.md        # Qualitative failure analysis & root-cause report
 ├── notebooks/
 │   └── AIHACK1.ipynb           # Exploratory development notebook
 └── src/
@@ -34,7 +43,7 @@ clinical_rag_project/
     ├── indexing.py             # Chroma vectorstore creation & similarity search
     ├── llm.py                  # Groq client initialization
     ├── rag.py                  # RAG prompt template, citation formatting & chain
-    ├── evaluation.py           # Precision@K, Hit Rate, MRR calculation engine
+    ├── evaluation.py           # Core evaluation interface delegating to evaluation package
     └── main.py                 # CLI entry point (interactive & one-shot mode)
 ```
 
@@ -58,7 +67,7 @@ clinical_rag_project/
    - Embeds text using `FastEmbedEmbeddings` with `BAAI/bge-small-en-v1.5` cosine distance index.
 
 5. **Automated Retrieval Benchmarking**:
-   - Integrated evaluation suite (`src/evaluation.py` & `chunking/chunk_experiment.py`) measuring Precision@K, Hit Rate@K, and Mean Reciprocal Rank (MRR).
+   - Integrated evaluation suite (`src/evaluation.py`, `chunking/chunk_experiment.py`, & `retrieval/retrieval_experiment.py`) measuring Precision@K, Hit Rate@K, and Mean Reciprocal Rank (MRR).
 
 ---
 
@@ -114,6 +123,14 @@ Execute the automated comparative benchmark across all 5 chunk configurations (A
 python -m chunking.chunk_experiment
 ```
 
+### Running Top-K Retrieval Evaluation Experiment
+
+Evaluate whether correct clinical evidence is retrieved at Top-1, Top-3, and Top-5:
+
+```bash
+python -m retrieval.retrieval_experiment
+```
+
 ---
 
 ## 🛠️ Module Reference
@@ -124,15 +141,32 @@ python -m chunking.chunk_experiment
 - [`src/indexing.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/src/indexing.py): Builds isolated in-memory Chroma vector databases with cosine distance search.
 - [`src/llm.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/src/llm.py): Initializes the Groq LLM client.
 - [`src/rag.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/src/rag.py): Defines the clinical system prompt, document citation formatter, and RAG execution chain.
-- [`src/evaluation.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/src/evaluation.py): Evaluates retriever precision, hit rate, and MRR against labeled ground-truth questions.
+- [`src/evaluation.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/src/evaluation.py): Evaluator interface providing access to shared metrics and benchmark dataset.
+- [`evaluation/evaluation_set.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/evaluation/evaluation_set.py): Canonical 16-question evaluation benchmark (`EVAL_SET`).
+- [`evaluation/metrics.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/evaluation/metrics.py): Precision@K, Hit Rate@K, and MRR retrieval metric calculations.
 - [`chunking/chunk_experiment.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/chunking/chunk_experiment.py): Automated 5-way benchmark comparing Configurations A, B, C, D, and E.
+- [`retrieval/retrieval_experiment.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/retrieval/retrieval_experiment.py): Top-K (K=1, 3, 5) evidence retrieval evaluation runner.
 - [`src/main.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/src/main.py): Command-line entry point.
+
+---
+
+## 🔍 Top-K Retrieval Evaluation ("Correct Evidence in Top-K")
+
+The retrieval experiment validates whether the system surfaces valid guideline evidence in the top ranks using the optimal chunk configuration (Config A: `chunk_size = 850`, `chunk_overlap = 150`):
+
+| Metric | Top-1 ($K=1$) | Top-3 ($K=3$) | Top-5 ($K=5$) |
+|:---|:---:|:---:|:---:|
+| **Correct Evidence Rate (Hit Rate)** | **76.92%** (10/13) | **84.62%** (11/13) | **92.31%** (12/13) |
+| **Precision** | **76.92%** | **58.97%** | **50.77%** |
+| **Mean Reciprocal Rank (MRR)** | — | — | **0.8269** |
+
+*Out-of-Scope Negative Controls (`Q13`, `Q14`, `Q15`): 100% verified (0.00% false positive evidence rate).*
 
 ---
 
 ## 🔬 Chunking Configuration Experiment
 
-To empirically determine the optimal chunking strategy for clinical decision support retrieval, we evaluated five distinct chunk configurations against an annotated clinical benchmark (`data/evaluation_set.json`) containing 13 in-scope USPSTF guideline queries and 3 out-of-scope negative controls.
+To empirically determine the optimal chunking strategy for clinical decision support retrieval, we evaluated five distinct chunk configurations against the canonical clinical benchmark ([`evaluation/evaluation_set.py`](file:///c:/Users/aa683/Desktop/Ai%20Hackathon/Day%201/clinical_rag_project/evaluation/evaluation_set.py)) containing 13 in-scope USPSTF guideline queries and 3 out-of-scope negative controls.
 
 ### Evaluated Configurations
 

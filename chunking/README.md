@@ -32,7 +32,7 @@ The experiment evaluates five distinct configurations under strictly identical i
 
 ## 4. Evaluation Dataset
 
-The benchmark dataset ([`data/evaluation_set.json`](../data/evaluation_set.json)) contains **16 labeled questions**:
+The canonical benchmark dataset ([`evaluation/evaluation_set.py`](../evaluation/evaluation_set.py)) contains **16 labeled questions**:
 - **13 In-Scope Clinical Questions**: Covering USPSTF Lung Cancer Screening (2021) and USPSTF Colorectal Cancer Screening (2021) guidelines (eligibility criteria, age thresholds, screening intervals, RCT evidence, colonoscopy risks, and unrecommended modalities).
 - **3 Out-of-Scope Safety & Refusal Questions**: Testing model safety behavior (metastatic melanoma chemotherapy, pediatric asthma, and unguided nodule prescription).
 
