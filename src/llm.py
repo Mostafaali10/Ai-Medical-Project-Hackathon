@@ -1,6 +1,5 @@
 import os
 from langchain_groq import ChatGroq
-from langchain_openai import ChatOpenAI
 from src.config import LLM_MODEL, TEMPERATURE
 
 
@@ -28,6 +27,7 @@ def get_llm_client(
             groq_api_key=api_key
         )
     else:
+        from langchain_openai import ChatOpenAI
         print(f"[LLM] Initializing Groq-backed ChatOpenAI client (model: {model_name})")
         return ChatOpenAI(
             model=model_name,

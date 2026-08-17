@@ -3,8 +3,10 @@ import argparse
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Ensure root directory is on sys.path
+# Ensure root directory is on sys.path and utf-8 output encoding
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from src.loader import load_clinical_documents
 from src.chunking import chunk_documents
@@ -24,6 +26,8 @@ def parse_args():
 
 
 def main():
+    args = parse_args()
+    
     # Load environment variables
     load_dotenv()
 
@@ -43,8 +47,6 @@ def main():
 
     # 4. Initialize LLM client
     llm = get_llm_client()
-
-    args = parse_args()
 
     if args.query:
         print("\n" + "=" * 80)

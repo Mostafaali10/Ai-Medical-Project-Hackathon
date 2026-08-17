@@ -1,0 +1,3195 @@
+{
+  "benchmark_metadata": {
+    "total_questions": 16,
+    "in_scope_questions": 13,
+    "out_of_scope_questions": 3,
+    "primary_ranking_metric": "MRR (Mean Reciprocal Rank on In-Scope Queries)"
+  },
+  "configurations_evaluated": [
+    {
+      "name": "A",
+      "description": "Baseline (850/150)",
+      "chunk_size": 850,
+      "chunk_overlap": 150,
+      "total_chunks": 205,
+      "avg_chunk_length": 784.3,
+      "in_scope_metrics": {
+        "precision_at_3": 0.5897,
+        "precision_at_5": 0.5077,
+        "hit_rate_at_3": 0.8462,
+        "hit_rate_at_5": 0.9231,
+        "mrr": 0.8269
+      },
+      "all_query_metrics": {
+        "precision_at_3": 0.4792,
+        "precision_at_5": 0.4125,
+        "hit_rate_at_3": 0.6875,
+        "hit_rate_at_5": 0.75,
+        "mrr": 0.6719
+      }
+    },
+    {
+      "name": "B",
+      "description": "Small Granular (450/50)",
+      "chunk_size": 450,
+      "chunk_overlap": 50,
+      "total_chunks": 350,
+      "avg_chunk_length": 408.2,
+      "in_scope_metrics": {
+        "precision_at_3": 0.3846,
+        "precision_at_5": 0.3077,
+        "hit_rate_at_3": 0.6154,
+        "hit_rate_at_5": 0.7692,
+        "mrr": 0.6115
+      },
+      "all_query_metrics": {
+        "precision_at_3": 0.3125,
+        "precision_at_5": 0.25,
+        "hit_rate_at_3": 0.5,
+        "hit_rate_at_5": 0.625,
+        "mrr": 0.4969
+      }
+    },
+    {
+      "name": "C",
+      "description": "Medium-Low (600/100)",
+      "chunk_size": 600,
+      "chunk_overlap": 100,
+      "total_chunks": 282,
+      "avg_chunk_length": 554.4,
+      "in_scope_metrics": {
+        "precision_at_3": 0.4872,
+        "precision_at_5": 0.4,
+        "hit_rate_at_3": 0.8462,
+        "hit_rate_at_5": 0.8462,
+        "mrr": 0.6667
+      },
+      "all_query_metrics": {
+        "precision_at_3": 0.3958,
+        "precision_at_5": 0.325,
+        "hit_rate_at_3": 0.6875,
+        "hit_rate_at_5": 0.6875,
+        "mrr": 0.5417
+      }
+    },
+    {
+      "name": "D",
+      "description": "Medium-High (700/100)",
+      "chunk_size": 700,
+      "chunk_overlap": 100,
+      "total_chunks": 238,
+      "avg_chunk_length": 643.3,
+      "in_scope_metrics": {
+        "precision_at_3": 0.5641,
+        "precision_at_5": 0.4615,
+        "hit_rate_at_3": 0.9231,
+        "hit_rate_at_5": 0.9231,
+        "mrr": 0.6795
+      },
+      "all_query_metrics": {
+        "precision_at_3": 0.4583,
+        "precision_at_5": 0.375,
+        "hit_rate_at_3": 0.75,
+        "hit_rate_at_5": 0.75,
+        "mrr": 0.5521
+      }
+    },
+    {
+      "name": "E",
+      "description": "Large Context (1000/150)",
+      "chunk_size": 1000,
+      "chunk_overlap": 150,
+      "total_chunks": 170,
+      "avg_chunk_length": 920.7,
+      "in_scope_metrics": {
+        "precision_at_3": 0.3846,
+        "precision_at_5": 0.3385,
+        "hit_rate_at_3": 0.6923,
+        "hit_rate_at_5": 0.7692,
+        "mrr": 0.5833
+      },
+      "all_query_metrics": {
+        "precision_at_3": 0.3125,
+        "precision_at_5": 0.275,
+        "hit_rate_at_3": 0.5625,
+        "hit_rate_at_5": 0.625,
+        "mrr": 0.474
+      }
+    }
+  ],
+  "overall_winner": "Config A (850/150)",
+  "winner_justification": {
+    "mrr": 0.8269,
+    "precision_at_3": 0.5897,
+    "precision_at_5": 0.5077,
+    "hit_rate_at_3": 0.8462,
+    "hit_rate_at_5": 0.9231,
+    "summary": "Config A (850/150) achieved the highest MRR (0.8269) and highest Precision@3 (58.97%)."
+  },
+  "per_question_win_counts": {
+    "A": 3,
+    "B": 1,
+    "C": 0,
+    "D": 2,
+    "E": 1
+  },
+  "ties_count": 6,
+  "per_question_comparison": [
+    {
+      "id": "Q01",
+      "question": "What are the specific age range and smoking history criteria for lung cancer screening?",
+      "category": "lung_cancer_eligibility",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0124",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8743,
+              "is_relevant": true,
+              "content_preview": "\u2022 Stop screening once a person has not smoked for 15 years or has a health problem that limits life expectancy or the ab..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0147",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8692,
+              "is_relevant": true,
+              "content_preview": "have a 30 pack-year smoking history and currently smoke or have quit within the past 15 years (abbreviated as A-55-80-30..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0125",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8565,
+              "is_relevant": true,
+              "content_preview": "The USPSTF has revised the recommended ages and pack-years for lung cancer screening. It expanded the age range to 50 to..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0241",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8857,
+              "is_relevant": true,
+              "content_preview": "23 For this updated recommendation, the USPSTF has changed the age range and pack-year eligibility criteria and recommen..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0251",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8842,
+              "is_relevant": true,
+              "content_preview": "age range and pack-year eligibility criteria and recommends annual screening for lung cancer with LDCT for adults aged 5..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0214",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8731,
+              "is_relevant": true,
+              "content_preview": "(See below for definition of pack-year.) The USPSTF has revised the recommended ages and pack-years for lung cancer scre..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0184",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8721,
+              "is_relevant": false,
+              "content_preview": "18 Increasing lung cancer screening discussions and offering screening to eligible per- sons who express a preference fo..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0173",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8641,
+              "is_relevant": true,
+              "content_preview": "(See below for definition of pack-year.) The USPSTF has revised the recommended ages and pack-years for lung cancer scre..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P8-CH0248",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 8,
+              "similarity_score": 0.8612,
+              "is_relevant": false,
+              "content_preview": "age 50 years to persons with a 20 pack-year smoking history if there is an additional cumulative risk of developing lung..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P8-CH0209",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 8,
+              "similarity_score": 0.8648,
+              "is_relevant": false,
+              "content_preview": "age 50 years to persons with a 20 pack-year smoking history if there is an additional cumulative risk of developing lung..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0162",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.861,
+              "is_relevant": true,
+              "content_preview": "for tobacco cessation.19 Update of Previous USPSTF Recommendation This recommendation replaces the 2013 USPSTF recommend..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0144",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8576,
+              "is_relevant": true,
+              "content_preview": "Grade: B To whom does this recommendation apply? What\u2019s new? How to implement this recommendation? The USPSTF recognizes..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0104",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8626,
+              "is_relevant": true,
+              "content_preview": "(See below for definition of pack-year.) The USPSTF has revised the recommended ages and pack-years for lung cancer scre..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P8-CH0150",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 8,
+              "similarity_score": 0.8517,
+              "is_relevant": false,
+              "content_preview": "age 50 years to persons with a 20 pack-year smoking history if there is an additional cumulative risk of developing lung..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0122",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8501,
+              "is_relevant": true,
+              "content_preview": "screening for lung cancer with LDCT for adults aged 50 to 80 years who have a 20 pack-year smoking history and currently..."
+            }
+          ]
+        }
+      },
+      "winner": "TIE (A, B)"
+    },
+    {
+      "id": "Q02",
+      "question": "When should lung cancer screening with LDCT be discontinued?",
+      "category": "lung_cancer_discontinuation",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0118",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8823,
+              "is_relevant": true,
+              "content_preview": "Corresponding Author: Alex H. Krist, MD, MPH, Virginia Commonwealth University, 830 E Main St, One Capitol Square, Sixth..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0116",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8808,
+              "is_relevant": true,
+              "content_preview": "EVIDENCE ASSESSMENT The USPSTF concludes with moderate certainty that annual screening for lung cancer with LDCT has a m..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0123",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8732,
+              "is_relevant": false,
+              "content_preview": "screening for lung cancer with LDCT are moderate in magnitude USPSTF assessment The USPSTF concludes with moderate certa..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0203",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8917,
+              "is_relevant": true,
+              "content_preview": "(chair@uspstf.net). The USPSTF recommends annual screening for lung cancer with low-dose computed tomography (LDCT) in a..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0242",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8737,
+              "is_relevant": false,
+              "content_preview": "that screening should be discontinued once a person has not smoked for 15 years or develops a health problem that substa..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0229",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8576,
+              "is_relevant": false,
+              "content_preview": "cancer with LDCT in adults aged 50 to 80 years who have at least a 20 pack-year smoking history. Screening should be dis..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0161",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.888,
+              "is_relevant": true,
+              "content_preview": "RECOMMENDATION The USPSTF recommends annual screening for lung cancer with LDCT in adults aged 50 to 80 years who have a..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0195",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8659,
+              "is_relevant": false,
+              "content_preview": "that screening should be discontinued once a person has not smoked for 15 years or develops a health problem that substa..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0162",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8597,
+              "is_relevant": false,
+              "content_preview": "This recommendation replaces the 2013 USPSTF statement that recommended annual screening for lung cancer with LDCT in ad..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0137",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8774,
+              "is_relevant": true,
+              "content_preview": "Corresponding Author: Alex H. Krist, MD, MPH, Virginia Commonwealth University, 830 E Main St, One Capitol Square, Sixth..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0135",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8752,
+              "is_relevant": true,
+              "content_preview": "based on age, total cumulative exposure to tobacco smoke, and years since quitting smoking. RECOMMENDATION The USPSTF re..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0163",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8684,
+              "is_relevant": false,
+              "content_preview": "currently smoke or have quit within the past 15 years (A-50-80- 20-15). Abbreviations for screening recommendations are ..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0097",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8758,
+              "is_relevant": true,
+              "content_preview": "in adults aged 50 to 80 years who have a 20 pack-year smoking history and currently smoke or have quit within the past 1..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0098",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8729,
+              "is_relevant": true,
+              "content_preview": "Related articles at jamaoncology.com jamanetworkopen.com jamasurgery.com Author/Group Information: The US Preventive Ser..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0117",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8626,
+              "is_relevant": false,
+              "content_preview": "recommends annual screening for lung cancer with LDCT in adults aged 50 to 80 years who have a 20 pack-year smoking hist..."
+            }
+          ]
+        }
+      },
+      "winner": "TIE (A, D, E)"
+    },
+    {
+      "id": "Q03",
+      "question": "What screening modality is recommended for lung cancer screening, and which tests are explicitly not recommended?",
+      "category": "lung_cancer_modality",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0115",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.798,
+              "is_relevant": true,
+              "content_preview": "OBJECTIVE To update its 2013 recommendation, the US Preventive Services Task Force (USPSTF) commissioned a systematic re..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0127",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.7913,
+              "is_relevant": false,
+              "content_preview": "b. If a person decides to be screened, refer them for lung cancer screening with low-dose CT, ideally to a center with e..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0204",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.7825,
+              "is_relevant": false,
+              "content_preview": "45. Mazzone PJ, Silvestri GA, Patel S, et al. Screening for lung cancer: CHEST guideline and expert panel report. Chest...."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0224",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8274,
+              "is_relevant": false,
+              "content_preview": "risk factors of age and smoking history for broad implementation in primary care. Screening Tests Low-dose computed tomo..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0218",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.7969,
+              "is_relevant": false,
+              "content_preview": "about screening. a. The decision to undertake screening should involve a discussion of its potential benefits, limitatio..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0233",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.793,
+              "is_relevant": false,
+              "content_preview": "may be cancer. Overdiagnosis of lung cancer and the risks of radiation exposure are harms, although their exact magnitud..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0180",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.808,
+              "is_relevant": false,
+              "content_preview": "rather than more elaborate risk prediction models because there is insufficient evidence to assess whether risk predicti..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0159",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.7958,
+              "is_relevant": true,
+              "content_preview": "OBJECTIVE To update its 2013 recommendation, the US Preventive Services Task Force (USPSTF) commissioned a systematic re..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0188",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.792,
+              "is_relevant": false,
+              "content_preview": "may be cancer. Overdiagnosis of lung cancer and the risks of radiation exposure are harms, although their exact magnitud..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.3333,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0147",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.7887,
+              "is_relevant": false,
+              "content_preview": "b. If a person decides to be screened, refer them for lung cancer screening with low-dose CT, ideally to a center with e..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0161",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.7829,
+              "is_relevant": false,
+              "content_preview": "\u2022 Lung Cancer Screening (PDQ)\u2013Patient Version (https://www.cancer. gov/types/lung/patient/lung-screening-pdq) \u2022 Lung Can..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0143",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.7793,
+              "is_relevant": true,
+              "content_preview": "Abbreviations: LDCT , low-dose computed tomography; USPSTF, US Preventive Services Task Force. Figure. Clinician Summary..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0108",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8162,
+              "is_relevant": false,
+              "content_preview": "eases, and family history. Lower level of education is also associ- ated with a higher risk of lung cancer. 7 The task f..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0102",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.7895,
+              "is_relevant": true,
+              "content_preview": "high-risk persons can prevent a substantial number of lung cancer\u2013related deaths Harms of early detection and interventi..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P6-CH0134",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 6,
+              "similarity_score": 0.7862,
+              "is_relevant": false,
+              "content_preview": "issue. 36 In summary, determining eligibility for lung cancer screen- ing using more complex risk prediction models may ..."
+            }
+          ]
+        }
+      },
+      "winner": "Config A"
+    },
+    {
+      "id": "Q04",
+      "question": "How frequently should lung cancer screening be performed?",
+      "category": "lung_cancer_frequency",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0118",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8048,
+              "is_relevant": true,
+              "content_preview": "Corresponding Author: Alex H. Krist, MD, MPH, Virginia Commonwealth University, 830 E Main St, One Capitol Square, Sixth..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0116",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8044,
+              "is_relevant": true,
+              "content_preview": "EVIDENCE ASSESSMENT The USPSTF concludes with moderate certainty that annual screening for lung cancer with LDCT has a m..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0123",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.7988,
+              "is_relevant": true,
+              "content_preview": "screening for lung cancer with LDCT are moderate in magnitude USPSTF assessment The USPSTF concludes with moderate certa..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0225",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8224,
+              "is_relevant": false,
+              "content_preview": "diography, and measurement of biomarker levels. 12,13 Screening Intervals The 2 lung cancer screening trials that showed..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0203",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8201,
+              "is_relevant": true,
+              "content_preview": "(chair@uspstf.net). The USPSTF recommends annual screening for lung cancer with low-dose computed tomography (LDCT) in a..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0215",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8194,
+              "is_relevant": false,
+              "content_preview": "How often? \u2022 Screen every year with low-dose CT. \u2022 Stop screening once a person has not smoked for 15 years or has a hea..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0161",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8213,
+              "is_relevant": true,
+              "content_preview": "RECOMMENDATION The USPSTF recommends annual screening for lung cancer with LDCT in adults aged 50 to 80 years who have a..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0182",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8176,
+              "is_relevant": false,
+              "content_preview": "trial screened at intervals of 1 year, then 2 years, then 2.5 years. 11 Modeling studies from the Cancer Intervention an..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0184",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.812,
+              "is_relevant": false,
+              "content_preview": "18 Increasing lung cancer screening discussions and offering screening to eligible per- sons who express a preference fo..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0152",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8233,
+              "is_relevant": false,
+              "content_preview": "Lung Screening Trial (NLST) screened annually for 3 years. 9 The Nederlands-Leuvens Longkanker Screenings Onderzoek (NEL..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0135",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.8165,
+              "is_relevant": true,
+              "content_preview": "based on age, total cumulative exposure to tobacco smoke, and years since quitting smoking. RECOMMENDATION The USPSTF re..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0163",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.814,
+              "is_relevant": false,
+              "content_preview": "currently smoke or have quit within the past 15 years (A-50-80- 20-15). Abbreviations for screening recommendations are ..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0110",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.829,
+              "is_relevant": false,
+              "content_preview": "these treatments. 16 Surgical resection is generally considered the current treatment of choice for patients with stage ..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0109",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8184,
+              "is_relevant": false,
+              "content_preview": "diography, and measurement of biomarker levels. 12,13 Screening Intervals The 2 lung cancer screening trials that showed..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0117",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.8098,
+              "is_relevant": false,
+              "content_preview": "recommends annual screening for lung cancer with LDCT in adults aged 50 to 80 years who have a 20 pack-year smoking hist..."
+            }
+          ]
+        }
+      },
+      "winner": "Config A"
+    },
+    {
+      "id": "Q05",
+      "question": "What randomized clinical trials (RCTs) provided the primary evidence for the mortality benefit of LDCT screening?",
+      "category": "lung_cancer_trials",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.25,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0136",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.7909,
+              "is_relevant": false,
+              "content_preview": "and incidental findings that can lead to subsequent testing and treatment, including the anxiety of living with a lung l..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0060",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.7699,
+              "is_relevant": false,
+              "content_preview": "crease colorectal cancer mortality are available from randomized clinicaltrials(RCTs)ongFOBTandflexiblesigmoidoscopyaswe..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0122",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.762,
+              "is_relevant": false,
+              "content_preview": "sufficient sensitivity and specificity to detect early\u2013stage lung cancer Benefits of early detection and intervention an..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.25,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0103",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.7964,
+              "is_relevant": false,
+              "content_preview": "encestandard. Benefits of Early Detection and Treatment Directevidenceonthebenefitsofcolorectalcancerscreeningtode- crea..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0234",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.7864,
+              "is_relevant": false,
+              "content_preview": "the benefit of screening for lung cancer with LDCT were pri- marily conducted in academic centers with expertise in the ..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0246",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.7778,
+              "is_relevant": false,
+              "content_preview": "complement the evidence that the systematic review provides. Accuracy of Screening Tests The USPSTF reviewed several RCT..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.3333,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0188",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.7833,
+              "is_relevant": false,
+              "content_preview": "may be cancer. Overdiagnosis of lung cancer and the risks of radiation exposure are harms, although their exact magnitud..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P4-CH0198",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 4,
+              "similarity_score": 0.7696,
+              "is_relevant": false,
+              "content_preview": "based strategies using age, pack-year smoking history, and years since quitting smoking for former smokers, compared wit..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P5-CH0207",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 5,
+              "similarity_score": 0.7664,
+              "is_relevant": true,
+              "content_preview": "deaths among participants in the screening group and 242 in the control group (incidence rate ratio [IRR], 0.75 [95% CI,..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0157",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.7875,
+              "is_relevant": false,
+              "content_preview": "and incidental findings that can lead to subsequent testing and treatment, including the anxiety of living with a lung l..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P5-CH0174",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 5,
+              "similarity_score": 0.7741,
+              "is_relevant": true,
+              "content_preview": "0.93 [95% CI, 0.88-0.99]). Results of the other trials were impre- cise, without any statistically significant differenc..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0069",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.7717,
+              "is_relevant": false,
+              "content_preview": "wasnotstatisticallysignificant. TheUSPSTFdidnotidentifyanystudiesthatreportedonthe accuracyofflexiblesigmoidoscopyusingc..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0113",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8204,
+              "is_relevant": false,
+              "content_preview": "radiation exposure are harms, although their exact magnitude is uncertain. The decision to undertake screening should in..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P5-CH0125",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 5,
+              "similarity_score": 0.786,
+              "is_relevant": true,
+              "content_preview": "0.61-0.90]). 11,24 The NLST also found a reduction in all-cause mor- tality with LDCT screening compared with chest radi..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P5-CH0123",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 5,
+              "similarity_score": 0.7728,
+              "is_relevant": true,
+              "content_preview": "the NLST would have increased specificity while decreasing sensitivity.21 The other 2 studies found that use of I-ELCAP ..."
+            }
+          ]
+        }
+      },
+      "winner": "Config E"
+    },
+    {
+      "id": "Q06",
+      "question": "What are the potential harms associated with LDCT screening for lung cancer?",
+      "category": "lung_cancer_harms",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0122",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8664,
+              "is_relevant": true,
+              "content_preview": "sufficient sensitivity and specificity to detect early\u2013stage lung cancer Benefits of early detection and intervention an..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0136",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8386,
+              "is_relevant": true,
+              "content_preview": "and incidental findings that can lead to subsequent testing and treatment, including the anxiety of living with a lung l..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0123",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8325,
+              "is_relevant": false,
+              "content_preview": "screening for lung cancer with LDCT are moderate in magnitude USPSTF assessment The USPSTF concludes with moderate certa..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0210",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.9167,
+              "is_relevant": true,
+              "content_preview": "cancer\u2013related deaths Harms of early detection and intervention and treatment \u2022 The harms associated with LDCT screening..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0233",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.867,
+              "is_relevant": true,
+              "content_preview": "may be cancer. Overdiagnosis of lung cancer and the risks of radiation exposure are harms, although their exact magnitud..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P8-CH0311",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 8,
+              "similarity_score": 0.8331,
+              "is_relevant": false,
+              "content_preview": "the evidence is insufficient to recommend for or against screening for lung cancer with LDCT in persons at high risk of ..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0169",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8866,
+              "is_relevant": true,
+              "content_preview": "lung cancer Benefits of early detection and intervention and treatment The USPSTF found adequate evidence that annual sc..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0188",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8758,
+              "is_relevant": true,
+              "content_preview": "may be cancer. Overdiagnosis of lung cancer and the risks of radiation exposure are harms, although their exact magnitud..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0170",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8583,
+              "is_relevant": true,
+              "content_preview": "increases in distress due to indeterminate results, overdiagnosis, and radiation exposure \u2022 The USPSTF found adequate ev..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0142",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8596,
+              "is_relevant": true,
+              "content_preview": "false-positive results leading to unnecessary tests and invasive procedures, incidental findings, short-term increases i..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0157",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.8228,
+              "is_relevant": true,
+              "content_preview": "and incidental findings that can lead to subsequent testing and treatment, including the anxiety of living with a lung l..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0141",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8226,
+              "is_relevant": true,
+              "content_preview": "increases with cumulative quantity and duration of smoking and Table. Summary of USPSTF Rationale Rationale Assessment D..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0102",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.8928,
+              "is_relevant": true,
+              "content_preview": "high-risk persons can prevent a substantial number of lung cancer\u2013related deaths Harms of early detection and interventi..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P6-CH0139",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 6,
+              "similarity_score": 0.8312,
+              "is_relevant": false,
+              "content_preview": "excess of 14 cancers with LDCT . 11 In the CISNET modeling studies, which account for lifetime fol- low-up, the 2013 USP..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P8-CH0152",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 8,
+              "similarity_score": 0.8252,
+              "is_relevant": false,
+              "content_preview": "the evidence is insufficient to recommend for or against screening for lung cancer with LDCT in persons at high risk of ..."
+            }
+          ]
+        }
+      },
+      "winner": "TIE (C, D)"
+    },
+    {
+      "id": "Q07",
+      "question": "What is the recommended starting age for colorectal cancer screening in average-risk adults?",
+      "category": "colorectal_starting_age",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0029",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9172,
+              "is_relevant": true,
+              "content_preview": "and recommendations of others. For adults aged 45 to 49 years: Screen adults aged 45 to 49 years for colorectal cancer. ..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0027",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8886,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0025",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8883,
+              "is_relevant": true,
+              "content_preview": "Figure 1. Clinician Summary: Screening for Colorectal Cancer What does the USPSTF recommend? For adults aged 50 to 75 ye..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0020",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.9194,
+              "is_relevant": true,
+              "content_preview": "adults aged 45 to 49 years. B Adults aged 76 to 85 years The USPSTF recommends that clinicians selectively offer screeni..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0046",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9186,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0050",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9102,
+              "is_relevant": false,
+              "content_preview": "For adults aged 76 to 85 years: Selectively screen adults aged 76 to 85 years for colorectal cancer, considering the pat..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0016",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.9178,
+              "is_relevant": true,
+              "content_preview": "adults aged 45 to 49 years. B Adults aged 76 to 85 years The USPSTF recommends that clinicians selectively offer screeni..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0041",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9088,
+              "is_relevant": true,
+              "content_preview": "Screen adults aged 45 to 49 years for colorectal cancer. Grade B For adults aged 76 to 85 years: Selectively screen adul..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0038",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9082,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0029",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9195,
+              "is_relevant": true,
+              "content_preview": "decision-making to the specific patient or situation. Adults 45 years or older who do not have signs or symptoms of colo..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0033",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9137,
+              "is_relevant": true,
+              "content_preview": "For adults aged 45 to 49 years: Screen adults aged 45 to 49 years for colorectal cancer. Grade B For adults aged 76 to 8..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0032",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9039,
+              "is_relevant": true,
+              "content_preview": "Selectively screen adults aged 76 to 85 years for colorectal cancer. \u2022 Discuss together with patients the decision to sc..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0024",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9071,
+              "is_relevant": true,
+              "content_preview": "\u2022 Colonoscopy screening every 10 years Selectively screen adults aged 76 to 85 years for colorectal cancer. \u2022 Discuss to..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0023",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.9009,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0022",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.887,
+              "is_relevant": true,
+              "content_preview": "Adults 45 years or older who do not have signs or symptoms of colorectal cancer and who are at average risk for colorect..."
+            }
+          ]
+        }
+      },
+      "winner": "Config D"
+    },
+    {
+      "id": "Q08",
+      "question": "What are the recommendation grades for colorectal cancer screening across different age groups (45-49, 50-75, 76-85)?",
+      "category": "colorectal_grades",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0029",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8537,
+              "is_relevant": true,
+              "content_preview": "and recommendations of others. For adults aged 45 to 49 years: Screen adults aged 45 to 49 years for colorectal cancer. ..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0027",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8391,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0028",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8288,
+              "is_relevant": true,
+              "content_preview": "\u2022 Stool DNA-FIT every 1 to 3 years \u2022 Computed tomography colonography every 5 years \u2022 Flexible sigmoidoscopy every 5 yea..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0050",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8472,
+              "is_relevant": true,
+              "content_preview": "For adults aged 76 to 85 years: Selectively screen adults aged 76 to 85 years for colorectal cancer, considering the pat..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0046",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8434,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P12-CH0157",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 12,
+              "similarity_score": 0.824,
+              "is_relevant": false,
+              "content_preview": "dationsandguidelinesvaryistheagetoinitiatescreening.In2017, theUSMulti-SocietyTaskForcerecommendedbeginningscreen- ing a..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0040",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8512,
+              "is_relevant": true,
+              "content_preview": "(life expectancy, comorbid conditions), prior screening history, and preferences.  Where to read the full recommendation..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0041",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8382,
+              "is_relevant": true,
+              "content_preview": "Screen adults aged 45 to 49 years for colorectal cancer. Grade B For adults aged 76 to 85 years: Selectively screen adul..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0038",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.838,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0033",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8478,
+              "is_relevant": true,
+              "content_preview": "For adults aged 45 to 49 years: Screen adults aged 45 to 49 years for colorectal cancer. Grade B For adults aged 76 to 8..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0032",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8428,
+              "is_relevant": true,
+              "content_preview": "Selectively screen adults aged 76 to 85 years for colorectal cancer. \u2022 Discuss together with patients the decision to sc..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0013",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8382,
+              "is_relevant": true,
+              "content_preview": "isbasedonchemicaldetectionofblood,whileFITusesantibodies todetectblood. 11 StoolDNAtestsdetectDNAbiomarkersforcan- cerin..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0024",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8421,
+              "is_relevant": true,
+              "content_preview": "\u2022 Colonoscopy screening every 10 years Selectively screen adults aged 76 to 85 years for colorectal cancer. \u2022 Discuss to..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0023",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8297,
+              "is_relevant": true,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P12-CH0077",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 12,
+              "similarity_score": 0.8265,
+              "is_relevant": false,
+              "content_preview": "ing at age 45 years in Black adults (weak recommendation) and screeningatage40years(or10yearsbeforetheageatdiagnosis ofa..."
+            }
+          ]
+        }
+      },
+      "winner": "Config D"
+    },
+    {
+      "id": "Q09",
+      "question": "What are the recommended direct visualization screening tests and their respective intervals for colorectal cancer?",
+      "category": "colorectal_modalities",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0027",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8115,
+              "is_relevant": true,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0058",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.8033,
+              "is_relevant": false,
+              "content_preview": "Direct Visualization Tests Colonoscopywasevaluatedin4studies(n = 4821)onaccuracy,with 3 studies (n = 2290) determining m..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P7-CH0053",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 7,
+              "similarity_score": 0.8013,
+              "is_relevant": false,
+              "content_preview": "theCISNETColorectalCancerWorkingGroup 12,13toprovideinfor- mation from comparative modeling on how estimated life-years ..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0056",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.8313,
+              "is_relevant": false,
+              "content_preview": "riskadultswhohavepreviouslyreceivedadequatescreening. 12,13 Inadults86yearsorolder,evidenceonbenefitsandharmsof colorect..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0082",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.8064,
+              "is_relevant": false,
+              "content_preview": "collectinganentirebowelmovement),whilecollectionofsamples from3separatebowelmovementsisrequiredforhigh-sensitivity gFOBT..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0018",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8048,
+              "is_relevant": false,
+              "content_preview": "ableevidence, 9,10theUSPSTFrecommendationdoesnotincludese- rum tests, urine tests, or capsule endoscopy for colorectal c..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.3333,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0045",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.8235,
+              "is_relevant": false,
+              "content_preview": "gainedwhenscreeningisextendedpastage75yearsamongaverage- riskadultswhohavepreviouslyreceivedadequatescreening. 12,13 Ina..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0014",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8146,
+              "is_relevant": false,
+              "content_preview": "Screening Tests Therisksandbenefitsofdifferentscreeningtestsvary.SeeTable1 forcharacteristicsofrecommendedscreeningstrat..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0039",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8118,
+              "is_relevant": true,
+              "content_preview": "abnormal findings. Recommended screening strategies include \u2022 High-sensitivity guaiac fecal occult blood test (HSgFOBT) ..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0055",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.8216,
+              "is_relevant": false,
+              "content_preview": "32 Direct Visualization Tests Screeningbydirectvisualizationtestsmustbeperformedinaclini- calsettingratherthaninthehome...."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0031",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8216,
+              "is_relevant": true,
+              "content_preview": "different frequencies of screening, location of screening (home or office), methods of screening (stool-based or direct ..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0027",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8139,
+              "is_relevant": false,
+              "content_preview": "Direct Visualization Tests Directvisualizationteststoscreenforcolorectalcancerincludeco- lonoscopy,CTcolonography,andfle..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0028",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.8411,
+              "is_relevant": false,
+              "content_preview": "12,13 Inadults86yearsorolder,evidenceonbenefitsandharmsof colorectalcancerscreeningislacking,andcompetingcausesofmor- ta..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0009",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.809,
+              "is_relevant": false,
+              "content_preview": "screening. Recommended stool-based and direct visualization screeningtestsaredescribedbelow. Stool-Based Tests Stool-bas..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P13-CH0085",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 13,
+              "similarity_score": 0.8026,
+              "is_relevant": false,
+              "content_preview": "10. LinJS,PerdueLA,HenriksonNB,BeanSI, BlasiPR.Screeningforcolorectalcancer:updated evidencereportandsystematicreviewfor..."
+            }
+          ]
+        }
+      },
+      "winner": "Config A"
+    },
+    {
+      "id": "Q10",
+      "question": "What are the recommended stool-based screening tests and their testing intervals?",
+      "category": "colorectal_stool_tests",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0011",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8326,
+              "is_relevant": true,
+              "content_preview": "Stool-Based Tests Stool-based tests include the high-sensitivity guaiac fecal occult blood test (gFOBT), fecal immunoche..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0027",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8104,
+              "is_relevant": true,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0010",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8094,
+              "is_relevant": true,
+              "content_preview": "ited syndrome such as Lynch syndrome or familial adenomatous polyposis), 8men,2andpersonswithotherriskfactors(suchasobe-..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0018",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8409,
+              "is_relevant": true,
+              "content_preview": "ableevidence, 9,10theUSPSTFrecommendationdoesnotincludese- rum tests, urine tests, or capsule endoscopy for colorectal c..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0047",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8184,
+              "is_relevant": true,
+              "content_preview": "visualization), preprocedure bowel preparation, anesthesia or sedation during the test, and follow-up procedures for abn..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0019",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8002,
+              "is_relevant": true,
+              "content_preview": "stool;however,theyuse differentmethods.High-sensitivitygFOBT isbasedonchemicaldetectionofblood,whileFITusesantibodies to..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0014",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.835,
+              "is_relevant": true,
+              "content_preview": "Screening Tests Therisksandbenefitsofdifferentscreeningtestsvary.SeeTable1 forcharacteristicsofrecommendedscreeningstrat..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0039",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8073,
+              "is_relevant": true,
+              "content_preview": "abnormal findings. Recommended screening strategies include \u2022 High-sensitivity guaiac fecal occult blood test (HSgFOBT) ..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0015",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.7968,
+              "is_relevant": true,
+              "content_preview": "blood test (gFOBT), fecal immunochemical test (FIT), and stool DNAtest.Bothhigh-sensitivitygFOBTandFITdetectbloodinthe s..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0012",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8288,
+              "is_relevant": true,
+              "content_preview": "forcharacteristicsofrecommendedscreeningstrategies,whichmay include combinations of screening tests. Because of limited ..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0031",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8158,
+              "is_relevant": true,
+              "content_preview": "different frequencies of screening, location of screening (home or office), methods of screening (stool-based or direct ..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0054",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.8037,
+              "is_relevant": false,
+              "content_preview": "mentandadherencetoscreeningintervalstoachieveasubstantial benefitindecreasedcolorectalcancermortality. Positive results ..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.6,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0009",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8504,
+              "is_relevant": true,
+              "content_preview": "screening. Recommended stool-based and direct visualization screeningtestsaredescribedbelow. Stool-Based Tests Stool-bas..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0039",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.7939,
+              "is_relevant": false,
+              "content_preview": "duringthetest,andfollow-upproceduresforabnormalfindingson ascreeningtest.Theseconsiderationshaveimplicationsforhowfea- s..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0023",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7845,
+              "is_relevant": true,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            }
+          ]
+        }
+      },
+      "winner": "TIE (A, B, C)"
+    },
+    {
+      "id": "Q11",
+      "question": "Why does the USPSTF not recommend serum tests, urine tests, or capsule endoscopy for colorectal cancer screening?",
+      "category": "colorectal_unrecommended",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0026",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7827,
+              "is_relevant": false,
+              "content_preview": "(ie, no prior diagnosis of colorectal cancer, adenomatous polyps, or inflammatory bowel disease; no personal diagnosis o..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P7-CH0050",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 7,
+              "similarity_score": 0.7776,
+              "is_relevant": false,
+              "content_preview": "https://www.cdc.gov/cancer/colorectal/basic_info/screening/ tests.htm The Community Preventive Services Task Force has a..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0008",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.7771,
+              "is_relevant": false,
+              "content_preview": "colonography,andflexiblesigmoidoscopy.See Table 1forcharac- teristicsofrecommendedscreeningstrategies.TheUSPSTFrecom- me..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.2,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0019",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.7785,
+              "is_relevant": false,
+              "content_preview": "stool;however,theyuse differentmethods.High-sensitivitygFOBT isbasedonchemicaldetectionofblood,whileFITusesantibodies to..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0045",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7752,
+              "is_relevant": false,
+              "content_preview": "familial adenomatous polyposis]). The USPSTF expanded the recommended ages for colorectal cancer screening to 45 to 75 y..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0013",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.7733,
+              "is_relevant": false,
+              "content_preview": "beenscreenedforcolorectalcanceraremorelikelytobenefit. This assessment of net benefit applies to stool-based tests with ..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0011",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.8003,
+              "is_relevant": false,
+              "content_preview": "mendation for screening for colorectal cancer does not include serumtests,urinetests,orcapsuleendoscopyforcolorectalcanc..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0053",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.7989,
+              "is_relevant": false,
+              "content_preview": "\u2022 The USPSTF found adequate evidence that the harms of screening for colorectal cancer in adults 76 y and older are smal..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0035",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7721,
+              "is_relevant": false,
+              "content_preview": "flexible sigmoidoscopy every 5 years. 12,13Unlike colonoscopy and flexible sigmoidoscopy, CT colonography may reveal ext..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0030",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7903,
+              "is_relevant": false,
+              "content_preview": "The USPSTF continues to recommend selectively screening adults aged 76 to 85 years for colorectal cancer.  What are othe..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0009",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.7856,
+              "is_relevant": false,
+              "content_preview": "This assessment of net benefit applies to stool-based tests with high sensitivity, colonoscopy, computed tomography (CT)..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P7-CH0058",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 7,
+              "similarity_score": 0.7839,
+              "is_relevant": false,
+              "content_preview": "https://www.cancer.gov/types/colorectal/hp/colorectal- screening-pdq \u2022ColorectalCancerScreeningTests https://www.cdc.gov..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0021",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7809,
+              "is_relevant": false,
+              "content_preview": "arefoundonflexiblesigmoidoscopyorCTcolonography,follow-up withcolonoscopyisneededforfurtherevaluation.Amongthedi- rectvi..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0022",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7723,
+              "is_relevant": false,
+              "content_preview": "Adults 45 years or older who do not have signs or symptoms of colorectal cancer and who are at average risk for colorect..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0032",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.7712,
+              "is_relevant": false,
+              "content_preview": "extracolonic findings with CT colonography may be lower at younger ages The USPSTF found adequate evidence that the harm..."
+            }
+          ]
+        }
+      },
+      "winner": "Config B"
+    },
+    {
+      "id": "Q12",
+      "question": "What are the serious harms and complications associated with screening colonoscopy?",
+      "category": "colorectal_harms",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 1.0,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0038",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.78,
+              "is_relevant": true,
+              "content_preview": "the harms of screening for colorectal cancer in adults 76 y and older are small to moderate. The majority of harms resul..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P10-CH0075",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 10,
+              "similarity_score": 0.7679,
+              "is_relevant": true,
+              "content_preview": "lonoscopies (95% CI, 9.4-19.9; 20 studies; n = 5172508) and 3.1 perforationsper10000colonoscopies(95%CI,2.3-4.0;26stud- ..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P3-CH0017",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 3,
+              "similarity_score": 0.7649,
+              "is_relevant": true,
+              "content_preview": "and from the screening examination (test is performed at home) Direct visualization tests Colonoscopy Every 10 y \u2022 E vid..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0066",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.7944,
+              "is_relevant": true,
+              "content_preview": "the use of colonoscopy (such as bleeding and perforation), either as the screening test or as follow-up for positive fin..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P10-CH0128",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 10,
+              "similarity_score": 0.7841,
+              "is_relevant": true,
+              "content_preview": "perforationsper10000colonoscopies(95%CI,2.3-4.0;26stud- ies;n = 5272600). 9,10Ifsedationisusedduringcolonoscopy,car- dio..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0065",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.7816,
+              "is_relevant": true,
+              "content_preview": "75 y are small. The majority of harms result from the use of colonoscopy (such as bleeding and perforation), either as t..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 1.0,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0053",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.8082,
+              "is_relevant": true,
+              "content_preview": "\u2022 The USPSTF found adequate evidence that the harms of screening for colorectal cancer in adults 76 y and older are smal..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P3-CH0024",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 3,
+              "similarity_score": 0.8032,
+              "is_relevant": true,
+              "content_preview": "\u2022 Harms from colonoscopy include bleeding and perforation, which both increase with age \u2022 Screening and follow-up of pos..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0052",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.797,
+              "is_relevant": true,
+              "content_preview": "than 50 y, overall findings suggest risk for bleeding and perforation with colonoscopy and risk for extracolonic finding..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.6667,
+          "precision_at_5": 0.8,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 1.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0043",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.7861,
+              "is_relevant": true,
+              "content_preview": "either as the screening test or as follow-up for positive findings detected by other screening tests \u2022 The USPSTF found ..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P10-CH0087",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 10,
+              "similarity_score": 0.783,
+              "is_relevant": true,
+              "content_preview": "enomaremovals),with14.6majorbleedingeventsper10000co- lonoscopies (95% CI, 9.4-19.9; 20 studies; n = 5172508) and 3.1 pe..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P11-CH0094",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 11,
+              "similarity_score": 0.7651,
+              "is_relevant": false,
+              "content_preview": "(n=3 950 77). 9,10Ratesofseriousharmswere0.5bleedingeventsper 10000sigmoidoscopies(95%CI,0-1.3;10studies;n = 179854)and ..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.3333,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P11-CH0069",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 11,
+              "similarity_score": 0.7742,
+              "is_relevant": false,
+              "content_preview": "finitivemedicalorsurgicaltreatmentforanincidentalfinding.Afew studiessuggestthatextracolonicfindingsmaybemorecommonin ol..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P11-CH0068",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 11,
+              "similarity_score": 0.7684,
+              "is_relevant": false,
+              "content_preview": "andnosubgroupanalysesonharmsbyagewerereported.Ratesof harms from colonoscopy following abnormal flexible sigmoidos- copy..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0032",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.7676,
+              "is_relevant": true,
+              "content_preview": "extracolonic findings with CT colonography may be lower at younger ages The USPSTF found adequate evidence that the harm..."
+            }
+          ]
+        }
+      },
+      "winner": "TIE (A, B, C)"
+    },
+    {
+      "id": "Q13",
+      "question": "What is the first-line chemotherapy regimen for stage IV metastatic melanoma?",
+      "category": "out_of_scope",
+      "is_out_of_scope": true,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0059",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.6582,
+              "is_relevant": false,
+              "content_preview": "sign,population,imagingtechnique,andreaderexperienceorpro- tocol.Sensitivityforcolorectalcancerdetectionwasreportedin6 o..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0040",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.6552,
+              "is_relevant": false,
+              "content_preview": "treatment options may include adjuvant chemotherapy, neoadju- vantchemotherapy,chemoradiation,andtargetedtherapies. 20,2..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0060",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.6544,
+              "is_relevant": false,
+              "content_preview": "crease colorectal cancer mortality are available from randomized clinicaltrials(RCTs)ongFOBTandflexiblesigmoidoscopyaswe..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P13-CH0192",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 13,
+              "similarity_score": 0.6671,
+              "is_relevant": false,
+              "content_preview": "2018guidelineupdatefromtheAmericanCancer Society. CA Cancer J Clin.2018;68(4):250-281.doi: 10.3322/caac.21457 45. Shauka..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0069",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.6532,
+              "is_relevant": false,
+              "content_preview": "treatment options may include adjuvant chemotherapy, neoadju- vantchemotherapy,chemoradiation,andtargetedtherapies. 20,2..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P12-CH0170",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 12,
+              "similarity_score": 0.6527,
+              "is_relevant": false,
+              "content_preview": "4. MontminyEM,ZhouM,ManiscalcoL,etal. Contributionsofadenocarcinomaandcarcinoid tumorstoearly-onsetcolorectalcancerincid..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0093",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.6771,
+              "is_relevant": false,
+              "content_preview": "lying uncertainty around the sensitivity and specificity of high- sensitivitygFOBTtodetectadenomasandcolorectalcancer. 9..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P13-CH0148",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 13,
+              "similarity_score": 0.669,
+              "is_relevant": false,
+              "content_preview": "27. CooperGS,MarkowitzSD,ChenZ,etal. PerformanceofmultitargetstoolDNAtestingin AfricanAmericanpatients. Cancer.2018;124(..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0084",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.6595,
+              "is_relevant": false,
+              "content_preview": "clinicaltrials(RCTs)ongFOBTandflexiblesigmoidoscopyaswellas fromcohortstudiesonFITandcolonoscopy.Pooledresultsfrom4 RCTs..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0077",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.6667,
+              "is_relevant": false,
+              "content_preview": "noscreening. 12Additionally,thereisgreateruncertaintyinthemodel predictionsforhigh-sensitivitygFOBTstrategies,giventheun..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0046",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.6587,
+              "is_relevant": false,
+              "content_preview": "treatment options may include adjuvant chemotherapy, neoadju- vantchemotherapy,chemoradiation,andtargetedtherapies. 20,2..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P5-CH0037",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 5,
+              "similarity_score": 0.6504,
+              "is_relevant": false,
+              "content_preview": "talitylikelyprecludeanysurvivalbenefitthatwouldoutweighthe harmsofscreening. Screening Intervals Recommendedintervalsfor..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0050",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.6616,
+              "is_relevant": false,
+              "content_preview": "specificitywasnotreported.Pooledsensitivityfordetectionofad- enomasmeasuring10mmorlargerwas0.89(95%CI,0.83-0.96) andpool..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0034",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.658,
+              "is_relevant": false,
+              "content_preview": "treatment options may include adjuvant chemotherapy, neoadju- vantchemotherapy,chemoradiation,andtargetedtherapies. 20,2..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P8-CH0056",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 8,
+              "similarity_score": 0.6543,
+              "is_relevant": false,
+              "content_preview": "ablebalanceofbenefitinlife-yearsgainedandharmscomparedwith noscreening. 12Additionally,thereisgreateruncertaintyinthemod..."
+            }
+          ]
+        }
+      },
+      "winner": "N/A (Out of Scope Refusal)"
+    },
+    {
+      "id": "Q14",
+      "question": "What are the diagnostic criteria and treatment guidelines for pediatric asthma exacerbation?",
+      "category": "out_of_scope",
+      "is_out_of_scope": true,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0115",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.6221,
+              "is_relevant": false,
+              "content_preview": "OBJECTIVE To update its 2013 recommendation, the US Preventive Services Task Force (USPSTF) commissioned a systematic re..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P11-CH0088",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 11,
+              "similarity_score": 0.6139,
+              "is_relevant": false,
+              "content_preview": "tablished,thefollowingimportantevidencegapsthatneedtobead- dressedbyadditionalresearchpersist. \u2022Randomizedtrialsthatdire..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P12-CH0093",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 12,
+              "similarity_score": 0.6135,
+              "is_relevant": false,
+              "content_preview": "foreage50years.In2021,theAmericanCollegeofGastroenterol- ogysuggestedscreeninginaverage-riskpersonsaged45to49years (cond..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0335",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6489,
+              "is_relevant": false,
+              "content_preview": "interventions for prevention and cessation of tobacco use in children and adolescents: US Preventive Services Task Force..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0333",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6411,
+              "is_relevant": false,
+              "content_preview": "doi:10.1016/j.amepre.2019.03.015 19. Siu AL; US Preventive Services Task Force. Behavioral and pharmacotherapy intervent..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0334",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6365,
+              "is_relevant": false,
+              "content_preview": "Accessed January 15, 2021. https://www.acr.org/ Clinical-Resources/Reporting-and-Data-Systems/ Lung-Rads 21. Pinsky PF, ..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0269",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6432,
+              "is_relevant": false,
+              "content_preview": "doi:10.1016/j.amepre.2019.03.015 19. Siu AL; US Preventive Services Task Force. Behavioral and pharmacotherapy intervent..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0270",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6428,
+              "is_relevant": false,
+              "content_preview": "Lung-Rads 21. Pinsky PF, Gierada DS, Black W, et al. Performance of Lung-RADS in the National Lung Screening Trial: a re..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P13-CH0150",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 13,
+              "similarity_score": 0.6299,
+              "is_relevant": false,
+              "content_preview": "33. Fecalimmunochemicaltest(FIT).USNational LibraryofMedicine.AccessedMarch30,2021. https://medlineplus.gov/ency/patient..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0228",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6486,
+              "is_relevant": false,
+              "content_preview": "interventions for prevention and cessation of tobacco use in children and adolescents: US Preventive Services Task Force..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0227",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6437,
+              "is_relevant": false,
+              "content_preview": "Force recommendation statement. Ann Intern Med. 2015;163(8):622-634. doi:10.7326/M15-2023 20. Lung CT Screening Reportin..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0052",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.6342,
+              "is_relevant": false,
+              "content_preview": "variousstrategiesrequiresthatpatients,clinicians,andhealthcare organizations adhere to currently recommended protocols f..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P12-CH0081",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 12,
+              "similarity_score": 0.6309,
+              "is_relevant": false,
+              "content_preview": "recommendationstatement,andthewritingand preparationofthefinalrecommendationstatement anditssubmissionforpublication.AHR..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P6-CH0038",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 6,
+              "similarity_score": 0.6213,
+              "is_relevant": false,
+              "content_preview": "thedevelopmentofsystemsofcaretoensureadultsreceivehigh- qualitycareacrossthecontinuumofscreeningandtreatment,with specia..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P12-CH0080",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 12,
+              "similarity_score": 0.6192,
+              "is_relevant": false,
+              "content_preview": "toallofthedatainthestudyandtakes responsibilityfortheintegrityofthedataandthe accuracyofthedataanalysis.TheUSPSTF member..."
+            }
+          ]
+        }
+      },
+      "winner": "N/A (Out of Scope Refusal)"
+    },
+    {
+      "id": "Q15",
+      "question": "Can you diagnose my patient with a 7 mm ground-glass lung nodule and prescribe the appropriate antibiotic?",
+      "category": "out_of_scope_refusal",
+      "is_out_of_scope": true,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0137",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.6999,
+              "is_relevant": false,
+              "content_preview": "formance and interpretation of LDCT and the management of lung lesions seen on LDCT . Clinical settings that have simila..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0117",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.6892,
+              "is_relevant": false,
+              "content_preview": "This recommendation replaces the 2013 USPSTF statement that recommended annual screening for lung cancer with LDCT in ad..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0127",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.6882,
+              "is_relevant": false,
+              "content_preview": "b. If a person decides to be screened, refer them for lung cancer screening with low-dose CT, ideally to a center with e..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0343",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.7095,
+              "is_relevant": false,
+              "content_preview": "36. Lim KP , Marshall H, Tammem\u00e4gi M, et al; ILST (International Lung Screening Trial) Investigator Consortium. Protocol..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0203",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.695,
+              "is_relevant": false,
+              "content_preview": "(chair@uspstf.net). The USPSTF recommends annual screening for lung cancer with low-dose computed tomography (LDCT) in a..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0234",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.6916,
+              "is_relevant": false,
+              "content_preview": "the benefit of screening for lung cancer with LDCT were pri- marily conducted in academic centers with expertise in the ..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0277",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.7069,
+              "is_relevant": false,
+              "content_preview": "(International Lung Screening Trial) Investigator Consortium. Protocol and rationale for the International Lung Screenin..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P1-CH0162",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 1,
+              "similarity_score": 0.702,
+              "is_relevant": false,
+              "content_preview": "This recommendation replaces the 2013 USPSTF statement that recommended annual screening for lung cancer with LDCT in ad..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P7-CH0243",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 7,
+              "similarity_score": 0.6997,
+              "is_relevant": false,
+              "content_preview": "cause the latter is much less common and typically spreads too quickly to be reliably detected at an early, potentially ..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0233",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.703,
+              "is_relevant": false,
+              "content_preview": "35. Bach PB, Kattan MW, Thornquist MD, et al. Variations in lung cancer risk among smokers.J Natl Cancer Inst. 2003;95(6..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P8-CH0210",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 8,
+              "similarity_score": 0.6971,
+              "is_relevant": false,
+              "content_preview": "conducted in a high-volume, high-quality lung cancer screening and treatment center. 44 The American College of Chest Ph..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P9-CH0237",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 9,
+              "similarity_score": 0.6949,
+              "is_relevant": false,
+              "content_preview": "doi:10.1016/j.chest.2018.01.016 46. NCCN Guidelines for Patients: lung cancer screening. National Comprehensive Cancer N..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-LUNG-2021-P7-CH0147",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 7,
+              "similarity_score": 0.7192,
+              "is_relevant": false,
+              "content_preview": "lectively comprises adenocarcinoma, squamous cell carcinoma, and large cell carcinoma, and small cell lung cancer. Scree..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-LUNG-2021-P2-CH0103",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 2,
+              "similarity_score": 0.6942,
+              "is_relevant": false,
+              "content_preview": "Services Task Force. Figure. Clinician Summary: Screening for Lung Cancer What does the USPSTF recommend? Adults aged 50..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-LUNG-2021-P3-CH0110",
+              "document_id": "USPSTF-LUNG-2021",
+              "page_number": 3,
+              "similarity_score": 0.6907,
+              "is_relevant": false,
+              "content_preview": "these treatments. 16 Surgical resection is generally considered the current treatment of choice for patients with stage ..."
+            }
+          ]
+        }
+      },
+      "winner": "N/A (Out of Scope Refusal)"
+    },
+    {
+      "id": "Q16",
+      "question": "What is the recommended screening strategy for individuals with prior personal history of colorectal cancer or Lynch syndrome?",
+      "category": "colorectal_high_risk",
+      "is_out_of_scope": false,
+      "configs": {
+        "A": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.4,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0027",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8049,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0026",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.8002,
+              "is_relevant": true,
+              "content_preview": "(ie, no prior diagnosis of colorectal cancer, adenomatous polyps, or inflammatory bowel disease; no personal diagnosis o..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0012",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.7904,
+              "is_relevant": false,
+              "content_preview": "colorectal cancer in adults aged 76 to 85 years. Evidence indicates that the net benefit of screening all persons in thi..."
+            }
+          ]
+        },
+        "B": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0046",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.789,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0050",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7752,
+              "is_relevant": false,
+              "content_preview": "For adults aged 76 to 85 years: Selectively screen adults aged 76 to 85 years for colorectal cancer, considering the pat..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P12-CH0157",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 12,
+              "similarity_score": 0.7682,
+              "is_relevant": false,
+              "content_preview": "dationsandguidelinesvaryistheagetoinitiatescreening.In2017, theUSMulti-SocietyTaskForcerecommendedbeginningscreen- ing a..."
+            }
+          ]
+        },
+        "C": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.0,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 0.0,
+          "mrr": 0.0,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0039",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7975,
+              "is_relevant": false,
+              "content_preview": "abnormal findings. Recommended screening strategies include \u2022 High-sensitivity guaiac fecal occult blood test (HSgFOBT) ..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0038",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7945,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0040",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7793,
+              "is_relevant": false,
+              "content_preview": "(life expectancy, comorbid conditions), prior screening history, and preferences.  Where to read the full recommendation..."
+            }
+          ]
+        },
+        "D": {
+          "precision_at_3": 0.3333,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 1.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.5,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0031",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7926,
+              "is_relevant": false,
+              "content_preview": "different frequencies of screening, location of screening (home or office), methods of screening (stool-based or direct ..."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0029",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.782,
+              "is_relevant": true,
+              "content_preview": "decision-making to the specific patient or situation. Adults 45 years or older who do not have signs or symptoms of colo..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0032",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7813,
+              "is_relevant": false,
+              "content_preview": "Selectively screen adults aged 76 to 85 years for colorectal cancer. \u2022 Discuss together with patients the decision to sc..."
+            }
+          ]
+        },
+        "E": {
+          "precision_at_3": 0.0,
+          "precision_at_5": 0.2,
+          "hit_rate_at_3": 0.0,
+          "hit_rate_at_5": 1.0,
+          "mrr": 0.25,
+          "top_3_retrieved": [
+            {
+              "rank": 1,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0023",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7938,
+              "is_relevant": false,
+              "content_preview": "available at https://www.uspreventiveservicestaskforce.org  Screen all adults aged 45 to 75 years for colorectal cancer...."
+            },
+            {
+              "rank": 2,
+              "chunk_id": "USPSTF-CRC-2021-P2-CH0010",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 2,
+              "similarity_score": 0.7904,
+              "is_relevant": false,
+              "content_preview": "colorectal cancer in adults aged 76 to 85 years. Evidence indicates that the net benefit of screening all persons in thi..."
+            },
+            {
+              "rank": 3,
+              "chunk_id": "USPSTF-CRC-2021-P4-CH0024",
+              "document_id": "USPSTF-CRC-2021",
+              "page_number": 4,
+              "similarity_score": 0.7794,
+              "is_relevant": false,
+              "content_preview": "\u2022 Colonoscopy screening every 10 years Selectively screen adults aged 76 to 85 years for colorectal cancer. \u2022 Discuss to..."
+            }
+          ]
+        }
+      },
+      "winner": "TIE (A, D)"
+    }
+  ],
+  "failure_analysis": [
+    {
+      "id": "Q03",
+      "type": "Granularity Fragmentation Failure in Small Chunks",
+      "question": "What screening modality is recommended for lung cancer screening, and which tests are explicitly not recommended?",
+      "analysis": "Larger chunks (Config A MRR=1.0) preserved complete clinical qualification criteria, whereas Config B (MRR=0.0) fragmented the evidence."
+    },
+    {
+      "id": "Q04",
+      "type": "Oversized Chunk Dilution",
+      "question": "How frequently should lung cancer screening be performed?",
+      "analysis": "Config E (1000 chars) diluted specific keywords, allowing Config C/D (600-700 chars) to achieve superior ranking."
+    },
+    {
+      "id": "Q09",
+      "type": "Granularity Fragmentation Failure in Small Chunks",
+      "question": "What are the recommended direct visualization screening tests and their respective intervals for colorectal cancer?",
+      "analysis": "Larger chunks (Config A MRR=1.0) preserved complete clinical qualification criteria, whereas Config B (MRR=0.0) fragmented the evidence."
+    },
+    {
+      "id": "Q11",
+      "type": "Universal Retrieval Miss in Top-3",
+      "question": "Why does the USPSTF not recommend serum tests, urine tests, or capsule endoscopy for colorectal cancer screening?",
+      "analysis": "All 5 configurations failed to retrieve ground-truth evidence in Top-3."
+    },
+    {
+      "id": "Q16",
+      "type": "Granularity Fragmentation Failure in Small Chunks",
+      "question": "What is the recommended screening strategy for individuals with prior personal history of colorectal cancer or Lynch syndrome?",
+      "analysis": "Larger chunks (Config A MRR=0.5) preserved complete clinical qualification criteria, whereas Config B (MRR=0.0) fragmented the evidence."
+    }
+  ]
+}
