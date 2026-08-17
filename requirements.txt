@@ -1,0 +1,9 @@
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-core>=0.1.20
+langchain-groq>=0.1.0
+langchain-openai>=0.0.5
+chromadb>=0.4.22
+fastembed>=0.2.0
+pypdf>=4.0.0
+python-dotenv>=1.0.0
