@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Install build dependencies for C/Rust extensions if needed
+# Install build dependencies for C/Rust extensions
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
@@ -20,5 +20,5 @@ COPY . .
 
 EXPOSE 8000
 
-# Run uvicorn on $PORT provided by Railway / container platform (fallback to 8000)
-CMD uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+# Start server natively via python module (reads $PORT dynamically from environment)
+CMD ["python", "-m", "backend.app.main"]
