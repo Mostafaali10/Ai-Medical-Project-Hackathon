@@ -76,6 +76,22 @@ app.include_router(rag.router)
 app.include_router(documents.router)
 
 
+@app.get("/", tags=["Root"], summary="Root API Information")
+async def root():
+    """Welcome endpoint returning API metadata and documentation links."""
+    return {
+        "name": settings.PROJECT_NAME,
+        "version": settings.VERSION,
+        "status": "online",
+        "docs_url": "/docs",
+        "health_url": "/health",
+        "endpoints": {
+            "ask": "POST /api/ask",
+            "documents": "GET /api/documents"
+        }
+    }
+
+
 from fastapi.encoders import jsonable_encoder
 
 # Global Exception Handlers
