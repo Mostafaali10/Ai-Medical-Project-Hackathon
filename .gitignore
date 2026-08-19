@@ -14,3 +14,10 @@ __pycache__/
 venv/
 ENV/
 env/
+
+# Local backups
+storage/chroma_backup/
+
+# Node dependencies & frontend builds
+frontend/node_modules/
+frontend/dist/
