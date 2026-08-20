@@ -1,11 +1,14 @@
 import os
-
+from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 
 from src.config import (
+    BASE_DIR,
     LLM_MODEL,
     TEMPERATURE,
 )
+
+load_dotenv(BASE_DIR / ".env")
 
 
 def get_llm_client(

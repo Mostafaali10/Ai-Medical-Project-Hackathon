@@ -45,6 +45,9 @@ if str(BASE_DIR) not in sys.path:
 from langchain_core.documents import Document
 from dotenv import load_dotenv
 
+# Ensure root .env is loaded
+load_dotenv(BASE_DIR / ".env")
+
 from src.config import VECTORSEARCH_K
 from src.loader import load_clinical_documents
 from src.chunking import chunk_documents
@@ -86,6 +89,8 @@ class ClinicalRAGPipeline:
         chunk metadata) is still fully exercisable without network access.
         """
         import os
+        from dotenv import load_dotenv
+        load_dotenv(BASE_DIR / ".env")
         if not os.environ.get("GROQ_API_KEY"):
             print("[PIPELINE] No GROQ_API_KEY set — running generation in SIMULATION MODE.")
             return None
