@@ -120,6 +120,12 @@ export function normalizeAskResponse(raw) {
     recommendation: answer.recommendation || '',
     safety_note: answer.safety_note || '',
     missing_information: Array.isArray(answer.missing_information) ? answer.missing_information : [],
+    citations: (answer.citations || []).map((c) => ({
+      document: c.document || 'NCI Guidelines',
+      section: c.section || 'General',
+      page: c.page ?? 'N/A',
+      chunk_id: c.chunk_id || 'N/A',
+    })),
     supporting_evidence: (answer.supporting_evidence || []).map((item) => {
       const citations = Array.isArray(item.citations) ? item.citations : [];
       return {

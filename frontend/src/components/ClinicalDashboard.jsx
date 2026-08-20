@@ -352,46 +352,74 @@ export default function ClinicalDashboard() {
                   {response.supporting_evidence?.length > 0 && (
                     <div>
                       <h3 className="text-xs font-bold tracking-wider text-slate-400 uppercase mb-2.5 flex items-center gap-1.5">
-                        <Bookmark className="w-4 h-4 text-indigo-400" /> Supporting Evidence Claims
+                        <Bookmark className="w-4 h-4 text-indigo-400" /> Supporting Evidence Claims & Source Sections
                       </h3>
-                      <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800/80 text-sm text-slate-300 space-y-3.5">
+                      <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800/80 text-sm text-slate-300 space-y-4">
                         {response.supporting_evidence.map((evidence, idx) => (
-                          <div key={idx} className="flex gap-3 items-start">
-                            <span className="font-bold text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded-md text-xs border border-indigo-800/50">
-                              {idx + 1}
+                          <div key={idx} className="flex gap-3 items-start p-3 bg-slate-900/60 rounded-xl border border-slate-800/60">
+                            <span className="font-bold text-indigo-300 bg-indigo-950 px-2.5 py-1 rounded-lg text-xs border border-indigo-800/60 h-fit mt-0.5">
+                              #{idx + 1}
                             </span>
-                            <div className="space-y-2 flex-1">
-                              <p className="leading-relaxed text-slate-200">{evidence.text}</p>
+                            <div className="space-y-2.5 flex-1">
+                              <p className="leading-relaxed text-slate-100 text-sm font-normal">{evidence.text}</p>
                               {evidence.citations?.length > 0 && (
                                 <div className="flex flex-wrap gap-2 pt-1">
                                   {evidence.citations.map((citeTag, cIdx) => {
-                                    // Extract chunk id or match tag
+                                    // Match chunk or citation to extract section title
+                                    const chunkMatch = response.evidence_chunks?.find(c => citeTag.includes(c.chunk_id));
+                                    const citationMatch = response.citations?.find(c => citeTag.includes(c.chunk_id));
+                                    const sectionTitle = chunkMatch?.section || citationMatch?.section || 'Clinical Guideline Section';
                                     const isSelected = selectedChunkId && citeTag.includes(selectedChunkId);
+
                                     return (
                                       <button
                                         key={cIdx}
                                         onClick={() => {
-                                          const chunkMatch = response.evidence_chunks?.find(c => citeTag.includes(c.chunk_id));
                                           if (chunkMatch) {
                                             setSelectedChunkId(chunkMatch.chunk_id);
                                           }
                                           setShowSidebar(true);
                                           setActiveTab('chunks');
                                         }}
-                                        className={`text-[11px] font-mono px-2.5 py-1 rounded-lg border transition flex items-center gap-1.5 cursor-pointer ${
+                                        className={`text-xs px-3 py-1.5 rounded-xl border transition flex items-center gap-2 cursor-pointer shadow-sm ${
                                           isSelected 
                                             ? 'bg-blue-600 text-white border-blue-500 shadow-md shadow-blue-600/30' 
-                                            : 'bg-blue-950/50 text-blue-300 border-blue-800/60 hover:bg-blue-900/50'
+                                            : 'bg-indigo-950/60 text-indigo-200 border-indigo-800/60 hover:bg-indigo-900/70 hover:text-white'
                                         }`}
                                       >
-                                        <ExternalLink className="w-3 h-3" />
-                                        <span>cited:</span>
-                                        <span className="font-semibold underline">{citeTag}</span>
+                                        <ExternalLink className="w-3.5 h-3.5 text-indigo-400" />
+                                        <span className="font-semibold text-indigo-300">Section:</span>
+                                        <span className="font-bold text-white underline">{sectionTitle}</span>
+                                        <span className="text-[10px] font-mono text-slate-400 ml-1">({citeTag})</span>
                                       </button>
                                     );
                                   })}
                                 </div>
                               )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Cited Sections Summary */}
+                  {response.citations?.length > 0 && (
+                    <div>
+                      <h3 className="text-xs font-bold tracking-wider text-slate-400 uppercase mb-2.5 flex items-center gap-1.5">
+                        <Layers className="w-4 h-4 text-purple-400" /> Document Sections Cited
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                        {response.citations.map((cite, cIdx) => (
+                          <div key={cIdx} className="p-3 bg-slate-950/80 border border-purple-900/30 rounded-xl flex items-start gap-2.5">
+                            <span className="w-2 h-2 rounded-full bg-purple-400 mt-1.5 flex-shrink-0"></span>
+                            <div className="text-xs space-y-0.5">
+                              <div className="font-semibold text-purple-200">{cite.section}</div>
+                              <div className="text-[11px] text-slate-400 flex items-center gap-2">
+                                <span>{cite.document}</span>
+                                <span>•</span>
+                                <span>Page {cite.page}</span>
+                              </div>
                             </div>
                           </div>
                         ))}
@@ -466,14 +494,14 @@ export default function ClinicalDashboard() {
                   <div
                     key={chunk.chunk_id || index}
                     onClick={() => setSelectedChunkId(chunk.chunk_id)}
-                    className={`p-4 rounded-2xl border text-xs cursor-pointer transition shadow-lg ${
+                    className={`p-4 rounded-2xl border text-xs cursor-pointer transition shadow-lg space-y-2.5 ${
                       isSelected
                         ? 'border-blue-500 bg-blue-950/40 ring-1 ring-blue-500/50'
                         : 'border-slate-800/80 bg-slate-900/60 hover:border-slate-700'
                     }`}
                   >
                     {/* Rank Badge & Score */}
-                    <div className="flex justify-between items-center mb-2.5">
+                    <div className="flex justify-between items-center">
                       <span className="font-semibold text-blue-300 bg-blue-950/80 border border-blue-800/60 px-2.5 py-0.5 rounded-md">
                         Rank #{chunk.rank}
                       </span>
@@ -482,14 +510,23 @@ export default function ClinicalDashboard() {
                       </span>
                     </div>
 
-                    {/* Metadata Stack */}
-                    <div className="text-slate-400 font-mono text-[11px] mb-2.5 space-y-1 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800/80">
+                    {/* Prominent Section Title Badge */}
+                    <div className="p-2.5 bg-indigo-950/80 border border-indigo-800/60 rounded-xl space-y-1">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+                        <Bookmark className="w-3 h-3 text-indigo-400" /> Guideline Section Title
+                      </div>
+                      <div className="font-bold text-slate-100 text-xs leading-snug">
+                        {chunk.section || 'General'}
+                      </div>
+                    </div>
+
+                    {/* Metadata Details */}
+                    <div className="text-slate-400 font-mono text-[11px] space-y-1 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800/80">
                       <div className="font-semibold text-slate-200 truncate">{chunk.doc_id}</div>
                       <div className="flex justify-between text-slate-400">
                         <span>Page {chunk.page_number}</span>
-                        <span className="text-indigo-300 font-sans font-medium">{chunk.section}</span>
+                        <span className="text-[10px] text-slate-500 truncate max-w-[150px]">{chunk.chunk_id}</span>
                       </div>
-                      <div className="text-[10px] text-slate-500 truncate">{chunk.chunk_id}</div>
                     </div>
 
                     {/* Content Snippet */}
