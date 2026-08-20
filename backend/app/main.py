@@ -1,3 +1,4 @@
+import os
 import sys
 import logging
 from pathlib import Path
@@ -31,6 +32,24 @@ async def lifespan(app: FastAPI):
     Initializes the singleton ClinicalRAGPipeline exactly ONCE on server startup
     and stores it in app.state.pipeline. Reuses the persistent Chroma vector store.
     """
+    # Safe Startup Diagnostic (Never logs secret keys)
+    raw_key = os.getenv("GROQ_API_KEY")
+    clean_key = raw_key.strip().strip("'\"") if raw_key else ""
+    has_key = bool(clean_key)
+    key_len = len(clean_key) if has_key else 0
+    raw_model = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+    clean_model = raw_model.strip().strip("'\"") if raw_model else "openai/gpt-oss-120b"
+    is_container = Path("/.dockerenv").exists() or Path("/app").exists()
+
+    logger.info("=" * 60)
+    logger.info("CLINICAL RAG BACKEND — PRODUCTION STARTUP DIAGNOSTIC")
+    logger.info("=" * 60)
+    logger.info(f"Current Working Dir : {os.getcwd()}")
+    logger.info(f"Container / Docker  : {is_container}")
+    logger.info(f"GROQ_API_KEY exists : {has_key} (length: {key_len})")
+    logger.info(f"GROQ_MODEL          : {clean_model}")
+    logger.info("=" * 60)
+
     logger.info("Initializing ClinicalRAGPipeline on startup...")
     try:
         pipeline = ClinicalRAGPipeline(
@@ -39,7 +58,8 @@ async def lifespan(app: FastAPI):
             use_llm=True
         )
         app.state.pipeline = pipeline
-        logger.info("ClinicalRAGPipeline initialized successfully.")
+        llm_ready = pipeline.llm is not None
+        logger.info(f"ClinicalRAGPipeline initialized successfully. LLM active: {llm_ready}")
     except Exception as e:
         logger.critical(f"FATAL: Failed to initialize ClinicalRAGPipeline: {e}", exc_info=True)
         app.state.pipeline = None

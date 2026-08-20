@@ -83,22 +83,30 @@ class ClinicalRAGPipeline:
     @staticmethod
     def _try_build_llm():
         """
-        Returns a live LLM client if GROQ_API_KEY is set, else None. When None,
-        generation.py falls back to a clearly-labeled simulation mode so the
-        rest of the pipeline (retrieval, citation validation, refusal logic,
-        chunk metadata) is still fully exercisable without network access.
+        Returns a live LLM client if GROQ_API_KEY is set in environment (or .env), else None.
+        When None, generation.py falls back to simulation mode.
         """
         import os
+        import traceback
         from dotenv import load_dotenv
         load_dotenv(BASE_DIR / ".env")
-        if not os.environ.get("GROQ_API_KEY"):
-            print("[PIPELINE] No GROQ_API_KEY set — running generation in SIMULATION MODE.")
+        
+        raw_key = os.environ.get("GROQ_API_KEY")
+        clean_key = raw_key.strip().strip("'\"") if raw_key else ""
+        
+        if not clean_key:
+            print("[PIPELINE] No GROQ_API_KEY set in environment — running generation in SIMULATION MODE.")
             return None
+        
         try:
             from src.llm import get_llm_client
-            return get_llm_client()
+            client = get_llm_client()
+            print("[PIPELINE] Live LLM client attached to ClinicalRAGPipeline successfully.")
+            return client
         except Exception as e:
-            print(f"[PIPELINE] Could not initialize LLM client ({e}) — falling back to SIMULATION MODE.")
+            print(f"[PIPELINE ERROR] Could not initialize live LLM client: {e}")
+            traceback.print_exc()
+            print("[PIPELINE] Falling back to SIMULATION MODE due to initialization error above.")
             return None
 
     def retrieve(self, question: str) -> List[Tuple[Document, float]]:
