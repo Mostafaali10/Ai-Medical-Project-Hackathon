@@ -104,9 +104,9 @@ export default function ClinicalDashboard() {
             </div>
             <div>
               <h1 className="text-lg font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-indigo-200">
-                Clinical Decision Support Assistant
+                Lung Cancer Clinical Decision Support RAG System
               </h1>
-              <p className="text-xs text-indigo-300/70 font-medium">Evidence-Grounded Non-Small Cell Lung Cancer Guidelines</p>
+              <p className="text-xs text-indigo-300/70 font-medium">Evidence-Grounded Non-Small Cell Lung Cancer Guidelines (NCI PDQ®)</p>
             </div>
           </div>
           

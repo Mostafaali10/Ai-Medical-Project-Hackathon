@@ -32,7 +32,7 @@ def _get_cors_origins() -> List[str]:
 
 
 class Settings:
-    PROJECT_NAME: str = "Clinical Decision Support RAG API"
+    PROJECT_NAME: str = "Lung Cancer Clinical Decision Support RAG API"
     VERSION: str = "1.0.0"
     DESCRIPTION: str = "FastAPI backend exposing the evidence-grounded Clinical RAG system for lung cancer screening and treatment guidelines."
     
