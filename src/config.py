@@ -119,12 +119,56 @@ DEFAULT_RELEVANCE_THRESHOLD = 0.25
 
 
 # ============================================================
-# LLM
+# LLM & Environment Resolvers
 # ============================================================
 
-LLM_MODEL = os.environ.get(
-    "GROQ_MODEL",
-    "openai/gpt-oss-120b"
-)
+def get_groq_api_key() -> str | None:
+    """
+    Robust resolver for GROQ_API_KEY from environment variables.
+    Handles case-insensitivity, whitespace in key names/values, and surrounding quotes.
+    """
+    # 1. Exact match
+    raw = os.environ.get("GROQ_API_KEY")
+    if raw:
+        v = raw.strip().strip("'\"")
+        if v:
+            return v
+
+    # 2. Case-insensitive / whitespace-tolerant search
+    for k, val in os.environ.items():
+        k_norm = k.strip().upper()
+        if k_norm in ("GROQ_API_KEY", "GROQ_APIKEY", "GROQ_KEY", "GROQAPI_KEY", "GROQ_SECRET", "GROQ_TOKEN"):
+            v = val.strip().strip("'\"")
+            if v:
+                return v
+        if "GROQ" in k_norm and ("KEY" in k_norm or "TOKEN" in k_norm or "SECRET" in k_norm):
+            v = val.strip().strip("'\"")
+            if v:
+                return v
+
+    return None
+
+
+def get_groq_model() -> str:
+    """
+    Robust resolver for GROQ_MODEL from environment variables.
+    """
+    raw = os.environ.get("GROQ_MODEL")
+    if raw:
+        v = raw.strip().strip("'\"")
+        if v:
+            return v
+
+    for k, val in os.environ.items():
+        k_norm = k.strip().upper()
+        if k_norm in ("GROQ_MODEL", "GROQMODEL", "GROQ_MODEL_NAME"):
+            v = val.strip().strip("'\"")
+            if v:
+                return v
+
+    return "openai/gpt-oss-120b"
+
+
+LLM_MODEL = get_groq_model()
 
 TEMPERATURE = 0.0

@@ -91,10 +91,10 @@ class ClinicalRAGPipeline:
         from dotenv import load_dotenv
         load_dotenv(BASE_DIR / ".env")
         
-        raw_key = os.environ.get("GROQ_API_KEY")
-        clean_key = raw_key.strip().strip("'\"") if raw_key else ""
+        from src.config import get_groq_api_key
+        api_key = get_groq_api_key()
         
-        if not clean_key:
+        if not api_key:
             print("[PIPELINE] No GROQ_API_KEY set in environment — running generation in SIMULATION MODE.")
             return None
         

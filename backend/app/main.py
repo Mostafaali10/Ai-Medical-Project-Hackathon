@@ -16,6 +16,7 @@ if str(BASE_DIR) not in sys.path:
 
 from backend.app.config import settings
 from backend.app.routes import health, rag, documents
+from src.config import get_groq_api_key, get_groq_model
 from src.pipeline import ClinicalRAGPipeline
 
 logging.basicConfig(
@@ -33,21 +34,23 @@ async def lifespan(app: FastAPI):
     and stores it in app.state.pipeline. Reuses the persistent Chroma vector store.
     """
     # Safe Startup Diagnostic (Never logs secret keys)
-    raw_key = os.getenv("GROQ_API_KEY")
-    clean_key = raw_key.strip().strip("'\"") if raw_key else ""
-    has_key = bool(clean_key)
-    key_len = len(clean_key) if has_key else 0
-    raw_model = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
-    clean_model = raw_model.strip().strip("'\"") if raw_model else "openai/gpt-oss-120b"
+    api_key = get_groq_api_key()
+    has_key = bool(api_key)
+    key_len = len(api_key) if has_key else 0
+    model = get_groq_model()
     is_container = Path("/.dockerenv").exists() or Path("/app").exists()
+    
+    # Safe inspection of variable names present in environment (keys only, never secrets)
+    matching_keys = [k for k in os.environ.keys() if any(w in k.lower() for w in ["groq", "llm"])]
 
     logger.info("=" * 60)
     logger.info("CLINICAL RAG BACKEND — PRODUCTION STARTUP DIAGNOSTIC")
     logger.info("=" * 60)
     logger.info(f"Current Working Dir : {os.getcwd()}")
     logger.info(f"Container / Docker  : {is_container}")
-    logger.info(f"GROQ_API_KEY exists : {has_key} (length: {key_len})")
-    logger.info(f"GROQ_MODEL          : {clean_model}")
+    logger.info(f"GROQ_API_KEY found  : {has_key} (length: {key_len})")
+    logger.info(f"GROQ_MODEL resolved : {model}")
+    logger.info(f"Detected Env Keys   : {matching_keys}")
     logger.info("=" * 60)
 
     logger.info("Initializing ClinicalRAGPipeline on startup...")
